@@ -1,11 +1,53 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>First Project</title>
+    <title>單機版網頁劇本殺 MVP</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <p>Hello, this is my first project</p>
+    <header class="hero" id="home">
+      <div class="hero__content">
+        <p class="tag">最小可玩原型</p>
+        <h1>孤城疑雲：網頁劇本殺</h1>
+        <p class="subtitle">單機版示例，直接在瀏覽器開啟即可體驗。</p>
+        <button class="primary" id="startBtn" type="button">開始遊戲</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="card hidden" id="roleSelection" aria-label="角色選擇">
+        <h2>選擇你的角色</h2>
+        <p class="muted">5 位角色 + 1 位主持，先選定身份後進入劇本。</p>
+        <div class="role-grid" id="roleList" aria-live="polite"></div>
+      </section>
+
+      <section class="card hidden" id="scriptView" aria-label="劇本內容">
+        <header class="script-header">
+          <div>
+            <p class="muted">當前身份</p>
+            <h3 id="roleName"></h3>
+          </div>
+          <div class="badge" id="chapterLabel">第一章</div>
+        </header>
+        <article id="scriptContent" class="script"></article>
+      </section>
+    </main>
+
+    <footer class="toolbar" aria-label="遊戲工具列">
+      <button type="button" class="toolbar__btn" id="btnProfile">個人宗卷</button>
+      <button type="button" class="toolbar__btn" id="btnTask">當前任務</button>
+      <button type="button" class="toolbar__btn" id="btnClue">已獲得線索</button>
+    </footer>
+
+    <section class="panel hidden" id="panel" aria-live="polite">
+      <h4 id="panelTitle"></h4>
+      <p id="panelBody"></p>
+      <button type="button" class="secondary" id="panelClose">關閉</button>
+    </section>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
